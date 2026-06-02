@@ -2,11 +2,10 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies required for certain Python libraries
+# Install only the absolute essential build tools required for Python packages
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
-    software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements and install python packages
